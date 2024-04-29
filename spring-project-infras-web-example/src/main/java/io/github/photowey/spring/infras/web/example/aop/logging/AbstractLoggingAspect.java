@@ -120,7 +120,7 @@ public abstract class AbstractLoggingAspect extends AbstractAspect implements En
             long rtt = watch.getTotalTimeMillis();
             if (log.isDebugEnabled()) {
                 this.debugReport(joinPoint, log, matched, result);
-            } else {
+            } else if (this.determinePrintResultEnabled()) {
                 if (log.isInfoEnabled()) {
                     this.infoReport(joinPoint, log, matched, result);
                 }
@@ -171,5 +171,10 @@ public abstract class AbstractLoggingAspect extends AbstractAspect implements En
     private void debugReport(ProceedingJoinPoint joinPoint, Logger log, boolean matched, Object result) {
         Object rvt = this.binaryType(result) ? "binary" : result;
         log.debug("exit: {}() with result = {}", joinPoint.getSignature().getName(), matched ? "skip.data" : rvt);
+    }
+
+    private boolean determinePrintResultEnabled() {
+        // by configure
+        return true;
     }
 }
