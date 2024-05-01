@@ -15,6 +15,7 @@
  */
 package io.github.photowey.spring.infras.core.example;
 
+import io.github.photowey.spring.infras.core.converter.jackson.JacksonJsonConverter;
 import io.github.photowey.spring.infras.core.example.property.InfrasCoreProperties;
 import io.github.photowey.spring.infras.core.example.repository.EmployeeRepository;
 import io.github.photowey.spring.infras.core.example.service.EmployeeService;
@@ -35,6 +36,9 @@ public abstract class LocalTest {
     protected EmployeeService employeeService;
     @Autowired(required = false)
     protected EmployeeRepository employeeRepository;
+
+    @Autowired
+    protected JacksonJsonConverter jacksonJsonConverter;
 
     @Autowired
     protected InfrasCoreProperties props;

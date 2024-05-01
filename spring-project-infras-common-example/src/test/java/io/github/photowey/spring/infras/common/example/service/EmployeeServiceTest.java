@@ -13,30 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.photowey.spring.infras.bean.example;
+package io.github.photowey.spring.infras.common.example.service;
 
-import io.github.photowey.spring.infras.bean.example.engine.InfrasBeanEngine;
-import io.github.photowey.spring.infras.core.converter.jackson.JacksonJsonConverter;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.UUID;
+import io.github.photowey.spring.infras.common.example.App;
+import io.github.photowey.spring.infras.common.example.LocalTest;
+import org.springframework.boot.test.context.SpringBootTest;
 
 /**
- * {@code LocalTest}
+ * {@code EmployeeServiceTest}
  *
  * @author photowey
  * @version 1.0.0
- * @since 2024/04/27
+ * @since 2024/05/01
  */
-public abstract class LocalTest {
+@SpringBootTest(classes = App.class)
+class EmployeeServiceTest extends LocalTest {
 
-    @Autowired
-    protected InfrasBeanEngine infrasBeanEngine;
-
-    @Autowired
-    protected JacksonJsonConverter jacksonJsonConverter;
-
-    protected String uuid() {
-        return UUID.randomUUID().toString().replaceAll("-", "");
-    }
 }

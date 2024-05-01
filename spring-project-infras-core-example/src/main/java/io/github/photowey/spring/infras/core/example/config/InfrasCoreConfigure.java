@@ -16,6 +16,8 @@
 package io.github.photowey.spring.infras.core.example.config;
 
 import io.github.photowey.spring.infras.core.context.ApplicationContextInjector;
+import io.github.photowey.spring.infras.core.converter.jackson.DefaultJacksonJsonConverter;
+import io.github.photowey.spring.infras.core.converter.jackson.JacksonJsonConverter;
 import io.github.photowey.spring.infras.core.example.property.InfrasCoreProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -37,5 +39,10 @@ public class InfrasCoreConfigure {
     @Bean
     public ApplicationContextInjector applicationContextInjector() {
         return new ApplicationContextInjector();
+    }
+
+    @Bean(JacksonJsonConverter.JACKSON_JSON_CONVERTER_BEAN_NAME)
+    public JacksonJsonConverter jacksonJsonConverter() {
+        return new DefaultJacksonJsonConverter();
     }
 }

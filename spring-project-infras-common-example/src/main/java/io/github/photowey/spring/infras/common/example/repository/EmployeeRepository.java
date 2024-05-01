@@ -13,30 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.photowey.spring.infras.bean.example;
+package io.github.photowey.spring.infras.common.example.repository;
 
-import io.github.photowey.spring.infras.bean.example.engine.InfrasBeanEngine;
-import io.github.photowey.spring.infras.core.converter.jackson.JacksonJsonConverter;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.UUID;
+import io.github.photowey.spring.infras.common.example.core.domain.entity.Employee;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 /**
- * {@code LocalTest}
+ * {@code EmployeeRepository}
  *
  * @author photowey
  * @version 1.0.0
- * @since 2024/04/27
+ * @since 2024/05/01
  */
-public abstract class LocalTest {
-
-    @Autowired
-    protected InfrasBeanEngine infrasBeanEngine;
-
-    @Autowired
-    protected JacksonJsonConverter jacksonJsonConverter;
-
-    protected String uuid() {
-        return UUID.randomUUID().toString().replaceAll("-", "");
-    }
-}
+@Repository
+public interface EmployeeRepository extends CrudRepository<Employee, Long> {}

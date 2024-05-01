@@ -15,7 +15,7 @@
  */
 package io.github.photowey.spring.infras.web.example.aop.logging;
 
-import io.github.photowey.spring.infras.web.example.aop.AbstractAspect;
+import io.github.photowey.spring.infras.web.aspect.AbstractAspect;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -101,7 +101,7 @@ public abstract class AbstractLoggingAspect extends AbstractAspect implements En
             );
         }
         HttpServletRequest request = this.handleRequest();
-        String uri = this.HELPER.getRequestUri(request);
+        String uri = this.helper.getRequestUri(request);
         String method = request.getMethod();
 
         boolean matched = false;
