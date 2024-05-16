@@ -20,6 +20,7 @@ import io.github.photowey.spring.infras.bean.engine.notify.NotifyEngine;
 import io.github.photowey.spring.infras.starter.example.engine.repository.RepositoryEngine;
 import io.github.photowey.spring.infras.starter.example.engine.service.ServiceEngine;
 import io.github.photowey.spring.infras.starter.example.property.InfrasStarterProperties;
+import io.github.photowey.spring.infras.web.reader.RemoteResourceReader;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 /**
@@ -37,7 +38,13 @@ public interface InfrasStarterEngine extends Engine {
 
     NotifyEngine notifyEngine();
 
+    // ----------------------------------------------------------------
+
     ThreadPoolTaskExecutor taskExecutor();
+
+    RemoteResourceReader resourceReader();
+
+    // ----------------------------------------------------------------
 
     InfrasStarterProperties infrasStarterProperties();
 }

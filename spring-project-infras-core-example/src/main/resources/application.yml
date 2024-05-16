@@ -4,6 +4,14 @@ spring:
   profiles:
     active: dev
 
+io:
+  github:
+    photowey:
+      github:
+        accessor:
+          mock:
+            profiles: "dev,test,staging"
+
 # ---------------------------------------------------------------------
 
 # custom the /actuator/info endpoint

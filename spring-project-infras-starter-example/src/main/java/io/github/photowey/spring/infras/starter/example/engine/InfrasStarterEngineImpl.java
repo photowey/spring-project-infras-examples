@@ -21,6 +21,7 @@ import io.github.photowey.spring.infras.bean.notify.NotifyCenter;
 import io.github.photowey.spring.infras.starter.example.engine.repository.RepositoryEngine;
 import io.github.photowey.spring.infras.starter.example.engine.service.ServiceEngine;
 import io.github.photowey.spring.infras.starter.example.property.InfrasStarterProperties;
+import io.github.photowey.spring.infras.web.reader.RemoteResourceReader;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
 
@@ -49,10 +50,19 @@ public class InfrasStarterEngineImpl extends AbstractEngine implements InfrasSta
         return this.beanFactory().getBean(NotifyEngine.class);
     }
 
+    // ----------------------------------------------------------------
+
     @Override
     public ThreadPoolTaskExecutor taskExecutor() {
         return this.beanFactory().getBean(NotifyCenter.NOTIFY_EXECUTOR_BEAN_NAME, ThreadPoolTaskExecutor.class);
     }
+
+    @Override
+    public RemoteResourceReader resourceReader() {
+        return this.beanFactory().getBean(RemoteResourceReader.class);
+    }
+
+    // ----------------------------------------------------------------
 
     @Override
     public InfrasStarterProperties infrasStarterProperties() {
